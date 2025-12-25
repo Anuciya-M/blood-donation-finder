@@ -15,7 +15,8 @@ app.config['SECRET_KEY'] = 'your_super_secret_key_change_me_2025'  # Change this
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'anuanu96660@gmail.com'  # உன் Gmail
+app.config['MAIL_USERNAME'] = 'anuanu96660@gmail.com'   
+
 app.config['MAIL_PASSWORD'] = 'lvrd rmwg ivvn nvwx'  # App Password
 app.config['MAIL_DEFAULT_SENDER'] = 'yourgmail@gmail.com'
 
@@ -183,7 +184,7 @@ def donor_register():
 @login_required
 def search():
     form = SearchForm()
-    donors = None  # None ஆக set பண்ணி, first time-ல results hide பண்ணலாம்
+    donors = None
 
     if form.validate_on_submit():
         blood = form.blood_group.data
