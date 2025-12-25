@@ -38,5 +38,3 @@ This is a Python-based Blood Donation Finder project.
 
 3\. Open browser
 
-
-
