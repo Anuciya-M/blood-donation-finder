@@ -1,0 +1,256 @@
+/* ===============================
+   LOGIN PAGE WRAPPER
+================================ */
+.login-page {
+    min-height: calc(100vh - 80px); /* footer space */
+    padding: 120px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: url("../images/login_bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+/* ===============================
+   TOP TEXT
+================================ */
+.top-text {
+    max-width: 900px;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.top-text h1 {
+    color: #762c2c;
+    font-weight: 800;
+    margin-top: -50px;
+    margin-bottom: 12px;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.85);
+}
+
+.top-text p {
+    color: #9c1d1d;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+/* ===============================
+   AUTH CARD (GLASS STYLE)
+================================ */
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+   padding: 2.2rem 2.5rem;
+
+  margin-top: 0.25rem;
+    margin-bottom: 3.5rem;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    box-shadow:
+        0 28px 65px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 rgba(255, 255, 255, 0.15);
+
+    animation: fadeUp 0.9s ease;
+}
+
+.auth-card h2 {
+    color: #7a1414;
+    letter-spacing: 0.6px;
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+/* ===============================
+   INPUT GROUP (ICON READY)
+================================ */
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.input-group-text {
+    width: 46px;
+    min-width: 46px;
+    background: rgba(255, 255, 255, 0.55);
+    border: none;
+    color: #9b1c1c;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* INPUT FIELD */
+.form-control {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #000;
+    padding: 9px 14px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-control::placeholder {
+    color: #475569;
+}
+
+/* FOCUS FIX (NO BLACK BORDER) */
+.form-control:focus {
+    outline: none !important;
+    background: #ffffff;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 0.18rem rgba(220, 38, 38, 0.35);
+}
+/* Input field spacing */
+.auth-card .form-control {
+    margin-bottom: 1.2rem;   /* 👈 input ↔ input gap */
+}
+
+/* Login button fix */
+.auth-card .btn-danger {
+    width: 70%;              /* 👈 full width vendam */
+    margin: 1.5rem auto 0;   /* 👈 input ↔ button gap */
+    display: block;
+    padding: 0.6rem 0;       /* height reduce */
+    font-size: 1rem;
+}
+
+/* Autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #000 !important;
+}
+
+/* ===============================
+   LOGIN FORM SUBMIT BUTTON
+================================ */
+.login-btn {
+    display: block;              /* Needed for margin auto */
+    width: 60%;                  /* 👈 size reduce (50–65% best) */
+    margin: 0 auto;              /* 👈 center align */
+    
+    padding: 0.45rem 1.4rem;     /* height reduce */
+    border-radius: 50px;
+    border: none;
+
+    font-size: 1rem;             /* text size reduce */
+    font-weight: 700;
+    color: #ffffff;
+
+    background: linear-gradient(135deg, #681515, #dc2626);
+    cursor: pointer;
+    transition: all 0.35s ease;
+
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.35);
+}
+
+/* Hover */
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 35px rgba(239, 68, 68, 0.55);
+}
+
+/* Active */
+.login-btn:active {
+    transform: scale(0.96);
+}
+
+/* Focus */
+.login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+}
+
+
+
+/* ===============================
+   BUTTON
+================================ */
+.login-form .btn-danger {
+    display: block;
+    margin: 18px auto 0;
+    width: 160px;
+
+    border-radius: 50px;
+    padding: 9px;
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    background: linear-gradient(135deg, #dc2626, #7f1d1d);
+    border: none;
+    transition: all 0.35s ease;
+}
+
+.login-form .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 45px rgba(220, 38, 38, 0.6);
+}
+
+/* ===============================
+   LOGIN LINK
+================================ */
+.auth-card p {
+    color: #69162b;
+    font-size: 0.9rem;
+    margin-top: 1.2rem;
+}
+
+.auth-card a {
+    color: #310505;
+    text-decoration: none;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 576px) {
+    .login-page {
+        padding-top: 100px;
+    }
+
+    .top-text h1 {
+        font-size: 2.1rem;
+    }
+
+    .top-text p {
+        font-size: 1.1rem;
+    }
+
+    .auth-card {
+        padding: 26px 22px;
+    }
+}

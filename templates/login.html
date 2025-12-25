@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="login-page">
+        <!-- Top Text -->
+        <div class="top-text text-center text-white">
+            <h1 class="display-4 fw-bold mb-3">Welcome Back!</h1>
+            <p class="lead fs-3">Login to find donors or manage your donations. Every login helps save lives!</p>
+        </div>
+
+        <!-- Login Form Card - Left Side (Red Accent Area) -->
+        <div class="auth-card mx-auto">
+            <h2 class="text-center mb-5 text-danger fw-bold">Login</h2>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="mb-4">
+                    {{ form.email(class="form-control form-control-lg rounded-pill", placeholder="Enter your email") }}
+                </div>
+                <div class="mb-5">
+    
+                    {{ form.password(class="form-control form-control-lg rounded-pill", placeholder="Enter your password") }}
+                </div>
+               {{ form.submit(class="login-btn") }}
+
+            </form>
+            <p class="text-center mt-4 text-muted fw-medium">
+                Don't have an account? <a href="/register" class="text-danger fw-bold">Register here</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

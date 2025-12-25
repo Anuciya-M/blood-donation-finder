@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/donor_register.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="donor-bg-full">
+
+    <div class="donor-form-wrapper">
+        <div class="donor-form">
+
+            <h2 class="text-center">Register as Donor</h2>
+
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    {{ form.name.label(class="form-label") }}
+                    {{ form.name(class="form-control", placeholder="Enter your full name") }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.blood_group.label(class="form-label") }}
+                    {{ form.blood_group(class="form-control") }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control", placeholder="Email address") }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.phone.label(class="form-label") }}
+                    {{ form.phone(class="form-control", placeholder="Phone number") }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.city.label(class="form-label") }}
+                    {{ form.city(class="form-control", placeholder="City") }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.last_donated.label(class="form-label") }}
+                    {{ form.last_donated(class="form-control") }}
+                    <small class="text-muted">Leave blank if first time donor</small>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        {{ form.lat.label(class="form-label") }}
+                        {{ form.lat(class="form-control", id="lat") }}
+                    </div>
+                    <div class="col">
+                        {{ form.lng.label(class="form-label") }}
+                        {{ form.lng(class="form-control", id="lng") }}
+                    </div>
+                </div>
+
+                {{ form.submit(class="btn btn-danger w-100") }}
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            document.getElementById("lat").value = position.coords.latitude.toFixed(6);
+            document.getElementById("lng").value = position.coords.longitude.toFixed(6);
+        },
+        function () {
+            alert("Location access denied. Please enter manually.");
+        }
+    );
+}
+</script>
+{% endblock %}

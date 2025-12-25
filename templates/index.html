@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero-fullscreen">
+    <div class="hero-top-left">
+        <p class="lead fs-3 mb-5">
+            One donation can save up to 3 lives.<br>
+            Join the movement today!
+        </p>
+        <div class="d-flex">
+            {% if current_user.is_authenticated %}
+                <a href="/donor_register" class="btn btn-hero btn-outline-light">Register as Donor</a>
+                <a href="/search" class="btn btn-hero btn-outline-light">Find Donors</a>
+            {% else %}
+                <a href="/register" class="btn btn-hero btn-danger">Sign Up</a>
+                <a href="/login" class="btn btn-hero btn-outline-light">Login</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

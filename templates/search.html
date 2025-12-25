@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="search-bg-full">
+    
+    <div class="search-wrapper">
+                 
+        <div class="search-container">
+
+            <h2>Find Blood Donors</h2>
+
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    {{ form.blood_group.label(class="form-label") }}
+                    {{ form.blood_group(class="form-control") }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.city.label(class="form-label") }}
+                    {{ form.city(class="form-control", placeholder="e.g., Chennai") }}
+                </div>
+
+                {{ form.submit(class="btn btn-primary w-100") }}
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

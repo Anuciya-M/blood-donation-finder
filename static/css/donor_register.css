@@ -1,0 +1,198 @@
+/* ===================================
+   DONOR REGISTER – FULL BACKGROUND
+=================================== */
+
+.donor-bg-full {
+    min-height: calc(100vh - 65px);
+    background-image: url("../images/donor_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Dark overlay */
+.donor-bg-full::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(153, 27, 27, 0.75)
+    );
+}
+
+
+/* FORM WRAPPER */
+.donor-form-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+/* TRANSPARENT GLASS FORM */
+.donor-form {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.12); /* 👈 glass */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 2.3rem;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    animation: fadeUp 0.7s ease forwards;
+}
+/* TITLE */
+.donor-form h2 {
+    font-weight: 800;
+    color: #6d1616;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* LABELS */
+.donor-form .form-label {
+    font-weight: 600;
+    color: rgba(83, 9, 9, 0.85);
+    margin-bottom: 0;
+    text-align: right;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+/* INPUTS */
+/* INPUTS & SELECT */
+.donor-form .form-control,
+.donor-form select {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    border-radius: 14px;
+    padding: 0.55rem 0.85rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+/* PLACEHOLDER */
+.donor-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* DATE ICON COLOR FIX */
+.donor-form input[type="date"] {
+    color-scheme: dark;
+}
+
+/* FOCUS STATE */
+.donor-form .form-control:focus,
+.donor-form select:focus {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: #ef4444;
+    box-shadow: 0 0 0 0.25rem rgba(239, 68, 68, 0.35);
+    outline: none;
+}
+
+/* SMALL TEXT */
+.donor-form small {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.8rem;
+     grid-column: 2 / -1;
+    margin-top: -0.4rem;
+}
+
+/* SUBMIT BUTTON */
+.donor-form .btn-danger {
+    background: linear-gradient(135deg, #690c0c, #dc2626);
+    border: none;
+    font-weight: 700;
+    padding: 0.75rem;
+    border-radius: 50px;
+    margin-top: 0.8rem;
+    width: 100%;
+}
+
+.donor-form .btn-danger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(239, 68, 68, 0.55);
+}
+
+.donor-form .mb-3,
+.donor-form .row.mb-3 {
+    display: grid;
+    grid-template-columns: minmax(180px, max-content) 1fr; /* label | input */
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Latitude / Longitude row fix */
+.donor-form .row.mb-3 {
+    grid-template-columns: 160px 1fr 160px 1fr;
+}
+
+.donor-form .row.mb-3 .col {
+    padding: 0;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .donor-form {
+        margin-top: 80px;
+        padding: 2rem;
+    }
+
+    .donor-form .mb-3,
+    .donor-form .row.mb-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-form .form-label {
+        text-align: left;
+    }
+
+    .donor-form small {
+        grid-column: auto;
+    }
+}
+/* Donor Register Dropdown Options - Visible & Readable */
+.donor-form select.form-control option {
+    background: #991b1b; /* Dark red background - matches your theme */
+    color: #ffffff !important; /* Force bright white text */
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Hover & Selected Option Highlight */
+.donor-form select.form-control option:hover,
+.donor-form select.form-control option:checked {
+    background: #dc2626 !important; /* Brighter red on hover/select */
+    color: #ffffff !important;
+}
+
+/* Placeholder/Hint Option (if you have an empty/default one) */
+.donor-form select.form-control option[value=""] {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}

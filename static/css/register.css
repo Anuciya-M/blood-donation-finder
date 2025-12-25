@@ -1,0 +1,201 @@
+/* ===============================
+   REGISTER PAGE WRAPPER
+================================ */
+.register-page {
+    min-height: calc(100vh - 120px); /* footer safe */
+    padding: 90px 20px 80px;         /* ⬅️ TOP REDUCED */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: url("../images/register_bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+/* ===============================
+   TOP TEXT
+================================ */
+.top-text {
+    max-width: 900px;
+    margin-bottom: 35px;
+    text-align: center;
+
+}
+
+.top-text h1 {
+    color: #ffffff;
+    font-weight: 800;
+    margin-top: -50px;   /* ❌ negative margin removed */
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.85);
+}
+
+.top-text p {
+    color: #530f0f;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+/* ===============================
+   AUTH CARD (GLASS STYLE)
+================================ */
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 35px 32px;
+
+    margin-top: -20px;
+    margin-bottom: 40px;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    box-shadow:
+        0 28px 65px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 rgba(255, 255, 255, 0.15);
+
+    animation: fadeUp 0.9s ease;
+}
+
+.auth-card h2 {
+    color: #7a1414;
+    letter-spacing: 0.6px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ===============================
+   INPUT WITH ICON STYLE
+================================ */
+.input-group {
+    width: 100%;
+    display: flex;
+    align-items: stretch;   /* 🔥 SAME HEIGHT */
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 14px;
+
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.input-group-text {
+    width: 52px;            /* 🔥 ICON FIXED */
+    min-width: 52px;
+
+    background: rgba(255, 255, 255, 0.55);
+    border: none;
+    color: #9b1c1c;
+    font-size: 1.15rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* INPUT FIELD */
+.input-group .form-control {
+    flex: 1;                /* 🔥 MAX WIDTH */
+    width: 100%;
+    border: none;
+    background: transparent;
+
+    padding: 9px 14px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #000;
+}
+
+.form-control::placeholder {
+    color: #475569;
+}
+
+/* FOCUS EFFECT */
+.input-group:focus-within {
+    background: #fff;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.35);
+}
+
+.form-control:focus {
+    outline: none !important;          /* 🔥 black outline remove */
+    box-shadow: 0 0 0 0.18rem rgba(220, 38, 38, 0.35) !important;
+    border-color: #dc2626;
+    background: #ffffff;
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.btn-danger {
+    border-radius: 50px;
+    padding: 11px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #dc2626, #7f1d1d);
+    border: none;
+    transition: all 0.35s ease;
+    width: 100%;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 45px rgba(220, 38, 38, 0.6);
+}
+
+/* ===============================
+   LOGIN LINK
+================================ */
+.auth-card p {
+    color: #69162b;
+}
+
+.auth-card a {
+    color: #c83f3f;
+    text-decoration: none;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 576px) {
+    .register-page {
+        padding-top: 100px;
+    }
+
+    .top-text h1 {
+        font-size: 2.1rem;
+    }
+
+    .top-text p {
+        font-size: 1.1rem;
+    }
+
+    .auth-card {
+        padding: 35px 25px;
+    }
+}

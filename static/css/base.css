@@ -1,0 +1,275 @@
+/* ===================================
+   THEME VARIABLES
+=================================== */
+:root {
+    --primary-red: #ef4444;
+    --dark-red: #991b1b;
+    --bg-dark: #0f172a;
+    --bg-soft: #020617;
+    --text-light: #f8fafc;
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    height: 100%;
+   overflow: hidden;/* No scroll - everything in one screen */
+}
+
+body {
+    background: var(--bg-soft);
+    color: var(--text-light);
+}
+
+/* ===================================
+   NAVBAR
+=================================== */
+.custom-navbar {
+    background: #991b1b !important;
+    padding: 0.6rem 1.5rem !important; /* Side padding for space */
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+/* Brand left, buttons right end */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.custom-navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Brand left & perfect center */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    font-weight: 800;
+}
+.navbar-brand:hover {
+    color: #ffffff !important;
+    text-decoration: none !important; /* Hover underline remove */
+}
+.brand-text {
+    font-size: 1.5rem;
+    margin-left: 0.6rem;
+    line-height: 1;
+}
+
+.blood-drop {
+    font-size: 2rem;
+    line-height: 1;
+    animation: pulse 2s infinite ease-in-out;
+    
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Nav links right side & center */
+.navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end; /* 🔥 push to right */
+    align-items: center;
+    flex-grow: 1;             /* 🔥 take remaining space */
+}
+
+
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;   /* 🔥 EXTREME RIGHT */
+    padding: 0;
+    gap: 1.2rem;
+    list-style: none;
+}
+.navbar-nav,
+.navbar-nav li {
+    list-style: none !important;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.nav-item {
+    list-style: none;
+}
+/* Buttons compact & center */
+/* BUTTONS */
+.btn-nav-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.6rem 2rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    line-height: 1;
+    text-decoration: none;
+}
+
+
+
+.btn-nav-pill:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    transform: translateY(-3px);
+}
+.btn-outline-light.btn-nav-pill {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Sign Up button - bright red */
+.custom-navbar .btn-nav-pill.btn-danger {
+    background: #ef4444 !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.custom-navbar .btn-nav-pill.btn-danger:hover {
+    background: #dc2626 !important;
+    transform: translateY(-2px);
+}
+
+/* Logout button inside dropdown */
+.dropdown-item.logout-btn {
+    background: #ef4444; /* Elegant red */
+    color: #ffffff !important;
+    font-weight: 600;
+    border-radius: 50px;
+    text-align: center;
+    padding: 0.4rem 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    
+}
+
+.dropdown-item.logout-btn:hover {
+    background: #dc2626;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Dropdown text */
+.dropdown-toggle.text-white {
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.dropdown-toggle.text-white:hover {
+    color: var(--primary-red) !important;
+}
+
+/* Toggler icon white */
+.navbar-toggler {
+    display: none !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.container-fluid {
+    padding: 0 1rem !important; /* Mobile side padding */
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #991b1b;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* ===================================
+   GENERAL BUTTONS
+=================================== */
+.btn-elegant {
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.btn-elegant:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(239, 68, 68, 0.6);
+}
+
+/* Flash alerts (if any on other pages) */
+.alert {
+    border-radius: 14px;
+    border: none;
+}
+
+/* Mobile - horizontal scroll if needed, but usually fits */
+@media (max-width: 576px) {
+    .navbar-nav {
+        gap: 1rem;
+    }
+    .btn-nav-pill {
+        padding: 0.45rem 1.4rem;
+        font-size: 0.9rem;
+    }
+    .brand-text {
+        font-size: 1rem;
+    }
+}
+
+/* Ensure username text is aligned vertically with logout button */
+.navbar-nav .nav-item.d-flex span {
+    line-height: 1; /* vertically center text */
+    font-size: 0.95rem;
+}
+
+
+.user-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.user-inline span {
+    line-height: 1;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.user-inline .btn {
+    padding: 0.6rem 2rem;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-nav {
+    flex-wrap: nowrap;
+}

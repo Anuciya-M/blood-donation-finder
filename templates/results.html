@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Available Donors - Blood Donation Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="results-bg-full">
+    <div class="results-wrapper">
+        <div class="results-container">
+
+            <h2>Available Donors</h2>
+
+            {% if donors and donors|length > 0 %}
+
+                <!-- 🔽 SCROLLABLE DONOR LIST -->
+                <div class="donor-scroll-area">
+
+                    {% for donor in donors %}
+                        <div class="donor-card">
+                            <h5 class="card-title">{{ donor[0] }}</h5>
+                            <p class="card-text">
+                                📞 {{ donor[1] }} <br>
+                                📍 {{ donor[2] }} <br>
+                                🩸 Blood Group: {{ blood_group }}
+                            </p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <div class="no-donors">
+                    <div>
+                        <p>No donors found in this area.</p>
+                        <p>Try searching with a different blood group or city.</p>
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,205 @@
+  /* ===================================
+   SEARCH DONORS – FULL BACKGROUND
+=================================== */
+
+.search-bg-full {
+    min-height: calc(100vh - 65px);
+    background-image: url("../images/search_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center; /* Changed: Center vertically */
+    justify-content: center;
+    padding: 2rem 1rem; /* Safe padding */
+}
+
+/* Dark overlay */
+.search-bg-full::before {
+content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.45),
+        rgba(153, 27, 27, 0.65)
+    );
+}
+
+/* WRAPPER - Full center */
+.search-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px; /* Wider for better balance */
+    display: flex;
+    justify-content: center;
+}
+/* GLASS FORM - Perfectly centered, no extra top margin */
+.search-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 3.5rem 3rem;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    animation: fadeUp 0.9s ease forwards;
+}
+
+/* TITLE */
+.search-container h2 {
+    font-weight: 800;
+    color: #390a0a;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    font-size: 2rem;
+    margin-top: -20px;
+}
+
+/* LABEL + INPUT ALIGN */
+.search-container .mb-3 {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* LABEL */
+.search-container .form-label {
+    font-weight: 600;
+    color: rgba(83, 9, 9, 0.85);
+    text-align: right;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+/* INPUT & SELECT */
+.search-container .form-control,
+.search-container select {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    border-radius: 14px;
+    padding: 0.65rem 0.95rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* PLACEHOLDER */
+.search-container .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* FOCUS */
+.search-container .form-control:focus,
+.search-container select:focus {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: #ef4444;
+    box-shadow: 0 0 0 0.25rem rgba(239, 68, 68, 0.35);
+    outline: none;
+}
+
+/* BUTTON - Perfectly Centered */
+.search-container .btn-primary {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0 auto; /* Centered with more top space */
+    background: linear-gradient(135deg, #690c0c, #dc2626);
+    border: none;
+    font-weight: 700;
+    padding: 0.85rem 2.5rem; /* Wider button */
+    border-radius: 50px;
+}
+
+.search-container .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(239, 68, 68, 0.55);
+}
+
+/* RESULTS TITLE */
+.search-container h3 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* DONOR CARDS */
+.search-container .card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    color: #ffffff;
+}
+
+.search-container .card-title {
+    font-weight: 700;
+    color: #fecaca;
+}
+
+.search-container .card-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE - Keep as is */
+@media (max-width: 768px) {
+   .search-bg-full {
+        align-items: flex-start;
+        padding-top: 4rem;
+    }
+    .search-container {
+        padding: 2.5rem 2rem;
+        margin-top: 2rem;
+    }
+
+    .search-container .mb-3 {
+        grid-template-columns: 1fr;
+        margin-bottom: 1.8rem;
+    }
+
+    .search-container .form-label {
+        text-align: left;
+    }
+
+    .search-container .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Blood Group Dropdown Options - Visible Dark Background */
+.search-container select.form-control option {
+    background: #991b1b; /* Dark red background */
+    color: #ffffff; /* Bright white text */
+    padding: 0.8rem 1rem; /* Better spacing */
+    font-size: 1rem;
+}
+
+/* Hover & Selected Option - Slightly Brighter */
+.search-container select.form-control option:hover,
+.search-container select.form-control option:checked {
+    background: #dc2626; /* Brighter red on hover/select */
+    color: #ffffff;
+}
+
+/* Placeholder/Hint Option (if you have empty one) */
+.search-container select.form-control option[value=""] {
+    color: rgba(255, 255, 255, 0.7); /* Slightly dimmed hint */
+    font-style: italic;
+}
+

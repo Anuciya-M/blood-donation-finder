@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="register-page d-flex flex-column justify-content-start">
+
+    <!-- TOP HEADING -->
+    <div class="top-text text-center text-white">
+        <h1 class="display-4 fw-bold">Join as a Donor Today!</h1>
+        <p class="lead fs-5 mt-3">
+            Your blood can save lives. Register now and become a hero –
+            one donation can save up to 3 lives!
+        </p>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="auth-card mx-auto">
+        <h2 class="text-center mb-4 text-danger fw-bold">User Registration</h2>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <!-- NAME -->
+            <div class="mb-3 input-group custom-input">
+                <span class="input-group-text">
+                    <i class="bi bi-person-fill"></i>
+                </span>
+                {{ form.name(class="form-control", placeholder="Full Name") }}
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3 input-group custom-input">
+                <span class="input-group-text">
+                    <i class="bi bi-envelope-fill"></i>
+                </span>
+                {{ form.email(class="form-control", placeholder="Email Address") }}
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="mb-3 input-group custom-input">
+                <span class="input-group-text">
+                    <i class="bi bi-lock-fill"></i>
+                </span>
+                {{ form.password(class="form-control", placeholder="Create Password") }}
+            </div>
+
+            <!-- CONFIRM PASSWORD -->
+            <div class="mb-4 input-group custom-input">
+                <span class="input-group-text">
+                    <i class="bi bi-shield-lock-fill"></i>
+                </span>
+                {{ form.confirm_password(class="form-control", placeholder="Confirm Password") }}
+            </div>
+
+            <!-- BUTTON -->
+            {{ form.submit(class="btn btn-danger w-100 py-2 fw-bold rounded-pill shadow") }}
+        </form>
+
+        <p class="text-center mt-4 text-muted">
+            Already have an account?
+            <a href="/login" class="text-danger fw-bold">Login here</a>
+        </p>
+    </div>
+
+</div>
+{% endblock %}

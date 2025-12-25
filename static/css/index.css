@@ -1,0 +1,174 @@
+/* ===================================
+   HERO FULLSCREEN
+=================================== */
+.hero-fullscreen {
+    height: 100vh;
+    width: 100%;
+    background: 
+        linear-gradient(rgba(153, 27, 27, 0.01), rgba(153, 27, 27, 0.2)),
+        url("../images/home_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+   padding: 120px 6% 80px; /* Top space for navbar */
+}
+/* Subtle red glow overlay */
+.hero-fullscreen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.18), transparent 70%);
+    pointer-events: none;
+}
+.hero-top-left {
+    max-width: 700px;
+}
+
+.hero-top-left p {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #771d1d;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+    line-height: 1.5;
+    margin-bottom: 3rem;
+}
+
+/* Top Left Title */
+.hero-title {
+    align-self: flex-start;
+    margin-left: 6px;
+    margin-right: 18px;
+    margin-top: 1px;
+}
+
+
+/* Body Login/Sign Up Buttons - Modern Red Theme Pill Style */
+.hero-top-left .btn {
+    border-radius: 50px; /* Soft pill */
+    padding: 0.75rem 2.5rem; /* Size குறைத்தேன் - compact */
+    font-size: 1.15rem; /* Clean readable text */
+    font-weight: 600;
+    min-width: 180px;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    backdrop-filter: blur(12px);
+    border: none;
+    letter-spacing: 0.8px;
+    text-decoration: none;
+}
+
+/* Sign Up - Elegant Red */
+.hero-top-left .btn-danger {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    color: #ffffff;
+}
+
+.hero-top-left .btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.5);
+}
+
+/* Login - Elegant Dark Glass */
+.hero-top-left .btn-outline-light {
+    background: rgba(184, 24, 24, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    backdrop-filter: blur(12px);
+}
+
+.hero-top-left .btn-outline-light:hover {
+    background: rgba(239, 68, 68, 0.3);
+    border-color: #ef4444;
+    color: #ffffff;
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+}
+
+/* Button spacing */
+.hero-top-left .d-flex {
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-top-left .btn {
+        padding: 0.7rem 2rem;
+        font-size: 1.1rem;
+        min-width: 160px;
+    }
+    .hero-top-left .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.8rem;
+    }
+}
+.btn-hero {
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    min-width: 220px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.btn-hero:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(239, 68, 68, 0.7);
+}
+
+.btn-danger.btn-hero {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: none;
+}
+
+.btn-outline-light.btn-hero {
+    background: rgba(117, 10, 10, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+/* Mobile responsive */
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-fullscreen {
+        padding: 100px 5% 50px;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-top-left p {
+        font-size: 1.6rem;
+    }
+    .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-hero {
+        width: 80%;
+        max-width: 300px;
+    }
+}

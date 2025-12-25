@@ -1,0 +1,171 @@
+/* ===================================
+   RESULTS PAGE – FULL BACKGROUND
+=================================== */
+
+.results-bg-full {
+    min-height: 100vh; /* Full viewport height */
+    margin-top: -8px; /* Offset navbar height if fixed */
+    padding-top: 75px; /* Prevent content hiding under navbar */
+    background-image: url("../images/results_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax effect - full visible */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.results-bg-full::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(153, 27, 27, 0.7));
+}
+
+/* Wrapper */
+.results-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px; /* Compact & clean */
+    padding: 1rem;
+}
+
+/* Container */
+.results-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.8rem 1.5rem; /* Minimal padding */
+    border-radius: 24px;
+    margin-top: -70px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 80vh; /* Container fixed height */
+    max-height: 800px;
+
+}
+
+/* TITLE */
+.results-container h2 {
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    text-shadow: 0 4px 14px rgba(0, 0, 0, 0.8);
+}
+
+/* SCROLL AREA MUST TAKE SPACE */
+.donor-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+    margin-bottom: 1rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+     scroll-snap-type: y mandatory;
+}
+
+/* Scrollbar - Keep Thin */
+.donor-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.donor-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.donor-scroll-area::-webkit-scrollbar-thumb {
+    background: linear-gradient(#ef4444, #7f1d1d);
+    border-radius: 10px;
+}
+
+
+/* Donor Card - Small & Clean */
+.donor-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: 1.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: all 0.35s ease;
+    scroll-snap-align: start;
+}
+.donor-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+}
+/* DONOR NAME */
+.donor-card .card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffe4e6;
+    margin-bottom: 0.6rem;
+    text-align: center;
+}
+/* Remove any .card-body flex if you have it */
+.donor-card .card-body {
+    text-align: center;
+}
+.donor-card .card-text {
+    font-size: 0.95rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* ICON COLOR */
+.donor-card .card-text span {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+
+/* Icons */
+.card-text i {
+    margin-right: 0.6rem;
+    color: #fca5a5;
+}
+
+.no-donors {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+}
+
+/* MAP */
+#map {
+    height: 340px;
+    border-radius: 20px;
+    margin-top: 1.2rem;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .results-container {
+        height: 90vh;
+        padding: 1.6rem 1.3rem;
+    }
+
+    .results-container h2 {
+        font-size: 1.6rem;
+    }
+
+    #map {
+        height: 280px;
+    }
+}

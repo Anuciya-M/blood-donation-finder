@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Finder - {{ title|default('Home') }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block head %}{% endblock %}
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container-fluid px-5">
+            <!-- Brand Left -->
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <span class="blood-drop me-2">🩸</span>
+                <span class="brand-text">BLOOD DONATION FINDER</span>
+            </a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Links Right -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-nav-pill" href="/donor_register">Register as Donor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-nav-pill" href="/search">Find Donors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-nav-pill" href="/emergency">Emergency Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-nav-pill" href="/admin">Admin</a>
+                    </li>
+                    <!-- User name + Logout inline -->
+                    <li class="nav-item user-inline d-flex align-items-center gap-2">
+                        <span class="text-white fw-bold">{{ current_user.name }}</span>
+                        <a class="btn btn-danger btn-nav-pill" href="/logout">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-nav-pill" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger btn-nav-pill" href="/register">Sign Up</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert-container mx-auto" style="max-width: 800px;">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Blood Donation Finder | Saving Lives, One Drop at a Time</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on('emergency_alert', function (data) {
+            alert("🚨 Emergency Blood Request!\n" + data.message);
+        });
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

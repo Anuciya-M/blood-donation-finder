@@ -1,0 +1,8 @@
+flask
+flask-login
+flask-bcrypt
+flask-wtf
+flask-socketio
+eventlet  # or gevent for SocketIO
+email-validator
+flask-mail

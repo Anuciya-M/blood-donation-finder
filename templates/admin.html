@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Admin Dashboard - Blood Donation Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- FULL BACKGROUND WRAPPER -->
+<div class="admin-bg-full">
+    <div class="admin-wrapper">
+
+        <!-- PAGE TITLE -->
+        <h2 class="text-center mb-5">Admin Dashboard</h2>
+
+        <!-- TWO SECTIONS SIDE BY SIDE -->
+        <div class="sections-flex">
+            <!-- Donor Section -->
+            <div class="admin-section">
+                <h3 class="section-title mb-3">Registered Donors</h3>
+                <div class="table-scroll">
+                    <table class="table table-striped table-hover">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Blood Group</th>
+                                <th>City</th>
+                                <th>Available</th>
+                                <th>Location (Lat, Lng)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in donors %}
+                            <tr>
+                                <td>{{ d[0] }}</td>
+                                <td>{{ d[1] }}</td>
+                                <td>{{ d[2] }}</td>
+                                <td>{{ d[4] }}</td>
+                                <td>{{ "Yes" if d[6] == 1 else "No" }}</td>
+                                <td>{{ d[7] if d[7] else 'None' }}, {{ d[8] if d[8] else 'None' }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Emergency Section -->
+            <div class="admin-section">
+                <h3 class="section-title mb-3">Emergency Blood Requests</h3>
+                <div class="table-scroll">
+                    <table class="table table-striped table-hover">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient Name</th>
+                                <th>Blood Group</th>
+                                <th>City</th>
+                                <th>Contact Number</th>
+                                <th>Requested Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for e in emergencies %}
+                            <tr>
+                                <td>{{ e[0] }}</td>
+                                <td>{{ e[1] }}</td>
+                                <td>{{ e[2] }}</td>
+                                <td>{{ e[3] }}</td>
+                                <td>{{ e[4] }}</td>
+                                <td>{{ e[5] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
